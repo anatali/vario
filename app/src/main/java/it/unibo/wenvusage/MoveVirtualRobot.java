@@ -71,6 +71,10 @@ public class MoveVirtualRobot {
 	public boolean moveLeft(int duration)     { return sendCmd("turnLeft", duration);     }
 	public boolean moveRight(int duration)    { return sendCmd("turnRight", duration);    }
 	public boolean moveStop(int duration)     { return sendCmd("alarm", duration);        }
+
+	public void boundary(){
+		//TODO
+	}
 /*
 MAIN
  */
