@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+ 
+<html>
+    <head>
+        <title>Dilogy work</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<script type="text/javascript">
+		function compute(f){
+			if (confirm("Sei sicuro?"))
+				f.result.value = eval(f.expr.value);
+			else alert("Ok come non detto");
+		}
+  		function qtycheck(item, min, max){
+		    console.log("qty_check " + item + " " + item.value + " " ) // + item + " min=" + min + " max=" + max
+			returnVal = false;
+			if ( ( parseInt(item.value) < min) || (parseInt(item.value) > max) )
+				alert("WARNING: "+ item.name+" deve essere fra "+min+ " e " +max);
+			else returnVal = true;
+			return returnVal; 
+		}
+		function validateAndSubmit(theForm){
+		    alert("validateAndSubmit " + theForm)
+			if (qty_check(theform.quantità,0,99)){ alert("Ordine accettato"); return true; }
+			else{ alert("Ordine rifiutato"); return false; }
+		}
+		</script>		
+    </head>
+    <body>
+        <h2>Starting</h2>
+    <div> click <a href="SnoopServlet">Click to Invoke a SnoopServlet</a></div>  
+	<div> click <a href="firstJsp.jsp">Click to Invoke firstJsp.jsp</a></div>  
+    <br/>
+    <br/>
+    
+<script>
+document.write('Hello '+navigator.appName+'!<br>');
+document.write('Versione: '+navigator.appVersion+'<br>');
+document.write('Piattaforma: '+navigator.platform+'<br>');
+document.write('Schermo: '+screen.width+'x'+screen.height+' pixel<br>');
+</script>
+
+<h3>Appunti</h3>
+<a href="docs/Appunti.html">Appunti.html</a>
+
+<h3>Test su button</h3>
+<input type="button" value="Apri cssSide" onClick="window.open('local/cssSide.html', 'newWin')">
+
+<h3>Calcola espressione</h3>
+Inserisci un’espressione:
+<form name="myForm">
+	<input type="text" name="expr" size=15 >
+	<input type="button" value="Calcola" onClick="compute(this.form)"><br/>
+	Risultato:
+	<input type="text" name="result" size="65" >
+<br/>
+<input name="button1" type="button" value="Mostra il nome del form" onclick="document.myForm.expr.value= document.myForm.name">	
+</form>   
+ 
+<h3>Uso di form</h3>
+ <!-- curl -d "{\"fname\":\"mario\", \"lname\": rossi}"  -X POST  raspberrypi.local:8080/SampleWebApp/actionpage.jsp -->       
+
+ <form action="actionpage.jsp" method="post">
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" value="John"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" value="Doe"><br><br>
+  <input type="submit" value="Submit">
+</form>  
+
+  
+<h3>Invio dati</h3>
+<form name="widget_order" action="actionpage.jsp" method="post">  <!-- onSubmit="return qty_check(this.quantita,0,999)" -->
+Quantità da ordinare
+<input type="text" name="quantità" oninput="qtycheck(this ,0,99)"> <!-- " oninput qty_check(this,0,99) alert(this.name)   -->
+<br/>
+<input type="submit" value="Trasmetti l’ordine" onclick="validateAndSubmit(this.form)">
+</form>
+
+
+</body>
+</html>
