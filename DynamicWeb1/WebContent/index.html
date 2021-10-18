@@ -64,7 +64,7 @@ Inserisci un’espressione:
 <input name="button1" type="button" value="Mostra il nome del form" onclick="document.myForm.expr.value= document.myForm.name">	
 </form>   
  
-<h3>Uso di form</h3>
+<h3>Uso di form che invoca una JSP</h3>
  <!-- curl -d "{\"fname\":\"mario\", \"lname\": rossi}"  -X POST  raspberrypi.local:8080/SampleWebApp/actionpage.jsp -->       
 
  <form action="actionpage.jsp" method="post">
@@ -76,7 +76,7 @@ Inserisci un’espressione:
 </form>  
 
   
-<h3>Invio dati</h3>
+<h3>Invio dati con controlli locali</h3>
 <form name="widget_order" action="actionpage.jsp" method="post">  <!-- onSubmit="return qty_check(this.quantita,0,999)" -->
 Quantità da ordinare
 <input type="text" name="quantità" oninput="qtycheck(this ,0,99)"> <!-- " oninput qty_check(this,0,99) alert(this.name)   -->
@@ -84,6 +84,15 @@ Quantità da ordinare
 <input type="submit" value="Trasmetti l’ordine" onclick="validateAndSubmit(this.form)">
 </form>
 
+
+<h3>Invio dati verso servlet</h3>
+
+<form action="FirstServlet" method="post">
+	First name: <input type="text" name="firstname"/>
+	&nbsp; &nbsp; 
+	Last name: <input type="text" name="lastname"/>
+	<input type="submit" value="Submit">
+</form>
 
 </body>
 </html>
