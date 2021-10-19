@@ -4,6 +4,10 @@
     Author     : aksarav
 --%>
 
+<!--  
+curl -X GET  localhost:8080/index.html 
+curl -d "{\"fname\":\"mario\", \"lname\": rossi}"  -X POST  localhost:8080/DynamicWeb1/actionpage.jsp -->       
+ -->
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ page import="java.net.InetAddress" %>

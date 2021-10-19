@@ -47,6 +47,9 @@ document.write('Piattaforma: '+navigator.platform+'<br>');
 document.write('Schermo: '+screen.width+'x'+screen.height+' pixel<br>');
 </script>
 
+<!--  
+curl -X GET  localhost:8080/index.html 
+ -->
 <h3>Appunti</h3>
 <a href="docs/Appunti.html">Appunti.html</a>
 
@@ -65,7 +68,7 @@ Inserisci un’espressione:
 </form>   
  
 <h3>Uso di form che invoca una JSP</h3>
- <!-- curl -d "{\"fname\":\"mario\", \"lname\": rossi}"  -X POST  raspberrypi.local:8080/SampleWebApp/actionpage.jsp -->       
+ <!-- curl -d "{\"fname\":\"mario\", \"lname\": rossi}"  -X POST  localhost:8080/DynamicWeb1/actionpage.jsp -->       
 
  <form action="actionpage.jsp" method="post">
   <label for="fname">First name:</label><br>
