@@ -78,7 +78,14 @@ curl -d "{\"fname\":\"mario\", \"lname\": rossi}"  -X POST  localhost:8080/Dynam
  <p>Sono le ore
  <jsp:getProperty name="time" property='hours'/> e
  <jsp:getProperty name="time" property='minutes'/> minuti.
-</p>           
+</p>         
+
+
+<h3>Prova AuthorNAmes</h3>
+ <jsp:useBean id="author" class = "action.AuthorNames" /> 
+ <jsp:setProperty name="author" property='prefix' value="D"/> 
+ <p><jsp:getProperty name="author" property='uniqueName'/> </p>
+
         
 </body>
 </html>

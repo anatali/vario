@@ -47,7 +47,7 @@
 		<h4>HTTP Request URL : <span><%= request.getRequestURL() %></span></h4>
 		<h4>HTTP Request Method : <span><%= request.getMethod() %></span></h4>
 		 
-		  <h2>--DataFlair--</h2>
+ 
   <h2>GET Method to Read Form Data Using URL</h2>
   <ul>
                <li><p><b>First Name:</b>
