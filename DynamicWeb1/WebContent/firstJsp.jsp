@@ -82,10 +82,28 @@ curl -d "{\"fname\":\"mario\", \"lname\": rossi}"  -X POST  localhost:8080/Dynam
 
 
 <h3>Prova AuthorNAmes</h3>
- <jsp:useBean id="author" class = "action.AuthorNames" /> 
- <jsp:setProperty name="author" property='prefix' value="D"/> 
- <p><jsp:getProperty name="author" property='uniqueName'/> </p>
+ <form action="authorpage.jsp" id="authorform" name="authorform" method="post">
+  <label for="authorname">Find author:</label><br>
+  <input type="text" id="authorname" name="authorname" value="" oninput="submit()"><br>
+</form>  
 
+ <% String inputPrefix = request.getParameter("authorname"); 
+    if( inputPrefix == null ) inputPrefix="0";
+    System.out.println(" inputPrefix ... "+ inputPrefix);
+    String fullName    = "";
+ %>
+   
+ <jsp:useBean id="author" class = "action.AuthorNames" /> 
+ <jsp:setProperty  name="author" property='prefix' value="<%=inputPrefix%>" /> 
+ <p> For prefix <%= inputPrefix %> found : <jsp:getProperty name="author" property='uniqueName' />  
+ </p>
+ 
+ 
+ <script>
+ console.log( "authorname:" + document.getElementById("authorname")  )
+ console.log( "authorname:" + document.getElementById("authorname")  )
+ //document.getElementById("authorname").value=<jsp:getProperty name="author" property='uniqueName' /> 
+ </script>
         
 </body>
 </html>

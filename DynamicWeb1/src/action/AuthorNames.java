@@ -11,14 +11,17 @@ public class AuthorNames {
 	private String prefix = "";
 	
 	public AuthorNames() {
+		Names.add("Alfieri  Vittorio");
 		Names.add("Manzoni Alessandro");
 		Names.add("Alighieri Dante");
+		Names.add("Ariosto  Ludovico");
 		//ordinare		
 		Collections.sort(Names);
 		orderedNames = Names.elements();
 	};
 	
 	public void setPrefix(String v) {
+		System.out.println("setPrefix " + v);
 		prefix = v;
 	}
 	
