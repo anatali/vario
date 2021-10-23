@@ -1,7 +1,7 @@
 <%-- 
-    Document   : index.jsp
-    Created on : 23 Jul, 2018, 5:39:03 AM
-    Author     : aksarav
+    Document   : firstJsp.jsp
+    Created on :  
+    Author     : an DISI Unibo
 --%>
 
 <!--  
@@ -51,8 +51,7 @@ curl -d "{\"fname\":\"mario\", \"lname\": rossi}"  -X POST  localhost:8080/Dynam
 </form>     
            
 		   <!-- https://dotnettutorials.net/lesson/javabeans-in-jsp/   jar -xvf sample.war -->
-		   <h3>Using Beans</h3>
-		   
+		   <h3>Using Beans</h3>   
 
 <jsp:useBean id = "date" class = "java.util.Date" /> 
 <p>The date/time is <%= date %> 

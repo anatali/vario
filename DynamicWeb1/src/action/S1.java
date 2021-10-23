@@ -1,20 +1,3 @@
-/*
- * https://www.html.it/articoli/tomcat-lapplicazione-servita/
- * http://localhost:8080/manager/html
- * 
-Java EE 6 spec (in general) and Servlet 3.0 spec (in particular) attempt 
-to de-emphasize deployment descriptors.
-
-You can use annotation to provide all the data that had been included in the web.xml file. 
-You should read through the Servlet 3.0 spec from the jcp.org site to get a bit 
-more explanatory text.
-
-To change the url-mapping for a Servlet 3.0 servlet, the first place to look 
-is in the source code for the servlet. Look for (and change) the value of the 
-urlPatterns element.
-
-If you are trying to create a web app based on Servlet 3.0, try to avoid creating a web.xml file.
- */
 package action;
 
 import java.io.IOException;
@@ -35,7 +18,6 @@ public class S1 extends HttpServlet {
      */
     public S1() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -44,7 +26,7 @@ public class S1 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("S1 | request.getContextPath()="+request.getContextPath());
 		String prefix = request.getParameter("authorname");
- 		System.out.println("prefix="+prefix );
+ 		System.out.println("S1 | prefix="+prefix );
  		
  		AuthorNames resource = new action.AuthorNames();
  		resource.setPrefix(prefix);
@@ -59,9 +41,14 @@ public class S1 extends HttpServlet {
 		out.println("</html>");	
 		*/
 		//Ripropongo la pagina con il prefix o il nome completo
-		request.setAttribute("fullName", fullName);
+ 		if( fullName.length() == 0 ) request.setAttribute("fullName",prefix);
+ 		else {
+ 			request.setAttribute("fullName", fullName);
+ 			request.setAttribute("fullNameFound", "true");
+ 		}
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/authorpage.jsp");
 		dispatcher.forward(request, response);
+		System.out.println("S1 | ends with prefix ="+prefix );
 	}
 
 	/**
