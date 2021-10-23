@@ -9,52 +9,47 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
-        <title>Action</title>
-        <style>
-            body{
-                font-family: 'Open Sans', sans-serif;
-            }
-            table,td,tr{
-                border: 1px solid;
-                border-collapse: collapse;
-            }
-            span{
-                font-weight: normal;
-                font-size: 16px;
-                color: black;
-            }
-            </style>
+        <title>AuthorPage</title>
     </head>
     <body>
-        
-        <%
-            String hostName;
-            String serverName;
-            Date Time;
-            String Dtime;
-            hostName = InetAddress.getLocalHost().getHostName()+" with IP="+InetAddress.getLocalHost().getHostAddress()+" ";
-            serverName = System.getProperty("weblogic.Name");
-            Time = new Date();
-            Dtime = Time.toString();
-            %>
-         
-   		 
- 
-  <h2>Findind Author</h2>
   
+  <h2>Finding Author</h2>
+  
+ <% String inputPrefix = request.getParameter("authorname"); 
+    if( inputPrefix == null ) inputPrefix="0";
+    System.out.println("firstJsp| inputPrefix ... "+ inputPrefix);
+    String fullName = "";
+    try{
+       fullName  = request.getAttribute("fullName").toString();  
+       System.out.println("firstJsp| fullName ... "+ fullName);
+       // if( fullName == null ) fullName="";
+    }catch(Exception e){
+    	System.out.println("firstJsp| ERROR on attribute fullName" );
+    }
+ %>
  
- <% String inputPrefix = request.getParameter("authorname"); %>
-  inputPrefix:  <%= inputPrefix %>
  
+<h3>Prova AuthorNames</h3>
+ <form action=<%= response.encodeURL ("S1") %> id="authorform" name="authorform" method="post">
+  <label for="authorname">Find author:</label><br>
+  <input type="text" id="authorname" name="authorname" value="" oninput="submit()"  />
+</form>  
+
+ <script>
+	 //console.log( "authorname:" + document.getElementById("authorname")  )
+	 //console.log( "inputPrefix:" +  "<%=fullName%>"   )
+	  document.getElementById("authorname").value="<%=fullName%>"
+ </script>
+
+
+   
  <jsp:useBean id="author" class = "action.AuthorNames" /> 
  <jsp:setProperty  name="author" property='prefix' value="<%=inputPrefix%>" /> 
- <p> For prefix <%= inputPrefix %> found : <jsp:getProperty name="author" property='uniqueName' />  
+ <p> For prefix <%= inputPrefix %> found : <jsp:getProperty name="author" property='uniqueName' />   
  </p>
+  
+  <!-- posso fare forward anche da qui sp:forward page="firstJsp.jsp" /> -->
  
-
-
-		<jsp:forward page="firstJsp.jsp" />
-		</body>
 </html>
 
 

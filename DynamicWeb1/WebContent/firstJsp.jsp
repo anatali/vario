@@ -6,7 +6,7 @@
 
 <!--  
 curl -X GET  localhost:8080/index.html 
-curl -d "{\"fname\":\"mario\", \"lname\": rossi}"  -X POST  localhost:8080/DynamicWeb1/actionpage.jsp -->       
+curl -d "{\"fname\":\"mario\", \"lname\": rossi}"  -X POST  localhost:8080/DynamicWeb1/actionpage.jsp       
  -->
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
@@ -34,18 +34,7 @@ curl -d "{\"fname\":\"mario\", \"lname\": rossi}"  -X POST  localhost:8080/Dynam
             </style>
     </head>
     <body>
-        
-        <%
-            String hostName;
-            String serverName;
-            Date Time;
-            String Dtime;
-            hostName = InetAddress.getLocalHost().getHostName()+" with IP="+InetAddress.getLocalHost().getHostAddress()+" ";
-            serverName = System.getProperty("weblogic.Name");
-            Time = new Date();
-            Dtime = Time.toString();
-            %>
-        
+          
         <h2> This is a Sample Web Application </h2>
         <hr>
           <h4>HTTP Request Method : <span><%= request.getMethod() %></span></h4>
@@ -80,30 +69,8 @@ curl -d "{\"fname\":\"mario\", \"lname\": rossi}"  -X POST  localhost:8080/Dynam
  <jsp:getProperty name="time" property='minutes'/> minuti.
 </p>         
 
-
-<h3>Prova AuthorNAmes</h3>
- <form action="authorpage.jsp" id="authorform" name="authorform" method="post">
-  <label for="authorname">Find author:</label><br>
-  <input type="text" id="authorname" name="authorname" value="" oninput="submit()"><br>
-</form>  
-
- <% String inputPrefix = request.getParameter("authorname"); 
-    if( inputPrefix == null ) inputPrefix="0";
-    System.out.println(" inputPrefix ... "+ inputPrefix);
-    String fullName    = "";
- %>
-   
- <jsp:useBean id="author" class = "action.AuthorNames" /> 
- <jsp:setProperty  name="author" property='prefix' value="<%=inputPrefix%>" /> 
- <p> For prefix <%= inputPrefix %> found : <jsp:getProperty name="author" property='uniqueName' />  
- </p>
  
  
- <script>
- console.log( "authorname:" + document.getElementById("authorname")  )
- console.log( "authorname:" + document.getElementById("authorname")  )
- //document.getElementById("authorname").value=<jsp:getProperty name="author" property='uniqueName' /> 
- </script>
         
 </body>
 </html>
