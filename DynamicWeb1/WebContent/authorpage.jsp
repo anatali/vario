@@ -32,7 +32,7 @@
 	 var found = <%= fullNameFound.length() %> > 0;
 	 if( found ){		 
 		 //alert(" switchPage fullName=" + "<%=fullName%>" + " found=" +  found + " location=" + location);
-		 location.replace("http://localhost:8080/DynamicWeb1/secondJsp.jsp?author=<%=fullName%>" );		  
+		 location.replace("http://localhost:8080/DynamicWeb1/secondJsp.jsp?author='<%=fullName%>'" );		  
 	 }else{
 		 alert("warning: no author name yet!"    );
 	 }	 

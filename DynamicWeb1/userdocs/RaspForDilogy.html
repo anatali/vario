@@ -241,12 +241,12 @@ How to share your Windows computer's internet to Raspberry Pi through ethernet p
 --------------------------------------------------------------------------------------
 Collega il Pi alla porta Ethernet del PC usando un normale cavo Ethernet
 Vai su "Connessioni di rete" sul PC Windows e seleziona "Connessione di rete wireless"
-Fare clic con il tasto destro e selezionare Proprietà. 
+Fare clic con il tasto destro e selezionare ProprietÃ . 
   Nella scheda "Condivisione" in "Condivisione connessione Internet" abilitare entrambe le caselle di controllo.
-Riavvia il PC. Questo passaggio è molto importante.
-Ora il tuo Pi otterrà un indirizzo IP dal tuo PC e potrà accedere a Internet tramite il tuo PC
-Se è necessario trovare l'indirizzo IP del Pi su SSH o per accedere in remoto dal PC, 
-eseguire il comando "ping raspberrypi" dove "raspberrypi" è il nome host del proprio Pi. 
+Riavvia il PC. Questo passaggio Ã¨ molto importante.
+Ora il tuo Pi otterrÃ  un indirizzo IP dal tuo PC e potrÃ  accedere a Internet tramite il tuo PC
+Se Ã¨ necessario trovare l'indirizzo IP del Pi su SSH o per accedere in remoto dal PC, 
+eseguire il comando "ping raspberrypi" dove "raspberrypi" Ã¨ il nome host del proprio Pi. 
 Nota che devi avere samba in esecuzione sul tuo Pi per far funzionare il comando ping.
 </pre>
 </li>
@@ -298,6 +298,13 @@ BUG_REPORT_URL="http://www.raspbian.org/RaspbianBugs"
 
 <ks>uname -a</ks>
 Linux raspberrypi 5.10.63-v7+ #1457 SMP Tue Sep 28 11:25:31 BST 2021 armv7l GNU/Linux
+
+<ks>https://hub.docker.com/r/dordoka/rpi-tomcat/</ks>	
+Exports a volume on <kc>/opt/tomcat/webapps</kc>. 
+You can mount the volume on run to a local directory containing your war file or exploded war directory. 
+If you need the management app, remember to have a copy on your hosts volume mount point.
+
+sudo docker run -d -p 8080:8080 -p 8009:8009 -v <k>/home/pi/tomcatServer</k>:<kc>/opt/tomcat/webapps</kc> dordoka/rpi-tomcat
 
 <ks>docker version</ks>
 client: Docker Engine - Community
@@ -351,6 +358,10 @@ g (gruppo)
 o (altri utenti)
 
 rm -rf dirname 	<kc>//rimuove tutti i files in una dir 'recursively'</kc>
+
+
+df -h 	<kc>//spazio libero</kc>
+rm -f nomefile
 </pre>
 </li>
 
@@ -359,7 +370,7 @@ rm -rf dirname 	<kc>//rimuove tutti i files in una dir 'recursively'</kc>
 <h3>Compilare file java</h3>
 <pre>
  javac nomefile.java
- jar –cvf newArchive.war myWebApp/*
+ jar -cvf newArchive.war myWebApp   
 </pre>
 
 </li>
@@ -377,20 +388,20 @@ rm -rf dirname 	<kc>//rimuove tutti i files in una dir 'recursively'</kc>
 06. File -> New -> Dynamic Web Project
 07. Enter Project name
 Strumenti (1x) pg 24
-Now you’ll see a menu pop up where you have to enter your project name. Enter your desired project name. 
+Now you'll see a menu pop up where you have to enter your project name. Enter your desired project name. 
 
 
-Before selecting the ‘Finish’ button, you first have to take care of the Target Runtime. 
+Before selecting the â€˜Finishâ€™ button, you first have to take care of the Target Runtime. 
 TOMCAT GIA' INSTALLATO
 Window > Preferences. Then expand the Server > Runtime Environments 
 right click on your project > Properties > Targeted Runtime > Click the version required 8.0 
 
 TOMCAT NON INSTALLATO.
-In this case, the Target runtime field wouldn’t have any option configured automatically. 
-So you’d have to click on ‘New’ and get the required Target runtime. 
+In this case, the Target runtime field wouldnâ€™t have any option configured automatically. 
+So youâ€™d have to click on â€˜Newâ€™ and get the required Target runtime. 
 
-08. Target Runtime -> [New…] -> Apache -> Apache Tomcat vX.X -> Next -> Tomcat
-installation directory -> [Browse…] -> <Path to tomcat>\Tomcat X.X -> Finish
+08. Target Runtime -> [Newâ€¦] -> Apache -> Apache Tomcat vX.X -> Next -> Tomcat
+installation directory -> [Browseâ€¦] -> <Path to tomcat>\Tomcat X.X -> Finish
 09. Finish
 10. Right click on WebContent -> New -> JSP (index.html / index.jsp as startfile) -> 
 Next -> Use JSP template -> New JSP File(xhtml) -> Finish
@@ -398,7 +409,7 @@ Next -> Use JSP template -> New JSP File(xhtml) -> Finish
 12. Project is available under http://localhost:8080/projectname
 13. To change the context root/URI in eclipse : Right click on project -> Properties ->Web
 Project Settings -> "New Context root" -> Apply -> OK -> OK
-14. Right click project -> Export -> WAR file -> Destination: -> [Browse…] -> <Path to
+14. Right click project -> Export -> WAR file -> Destination: -> [Browseâ€¦] -> <Path to
 tomcat>\Tomcat X.X\webapps (write name in small letters) -> Save -> Finish
 15. To change the context root/URI for tomcat just rename the WAR file
 16. Stop Eclipse-tomcat-server by pressing STRG+ALT+S
@@ -408,7 +419,47 @@ tomcat>\Tomcat X.X\webapps (write name in small letters) -> Save -> Finish
 </li>
 </ol>
  
+<h3>webssh Server</h3>
+<pre>
+sudo apt-get install shellinabox
+sudo nano /etc/default/shellinabox    //If you want to change the default port 4200
+sudo systemctl restart shellinabox
+</pre>
 
+
+All services will be located in the /lib/systemd/system folder. On boot, systemd will look after all enabled services and start them.
+<pre>
+cd /lib/systemd/system
+sudo touch shellinbox.service
+sudo nano shellinbox.service
+--------------------------------------------
+[Unit]
+Description=Start shellinbox server
+After=multi-user.target
+
+[Service]
+ExecStart=bash /home/pi/nat/shellinbox.sh
+User=pi
+
+[Install]
+WantedBy=multi-user.target
+--------------------------------------------
+</pre>
+<ul>
+<li>Description: not important, just write anything you want here.</li>
+<li>After: this controls when the service should be triggered. Basically, 'multi-user.target' means that the service will be triggered 
+once the multi-user environment is available. Note that this will not wait until the login or desktop screen appears.
+<li>ExecStart: the actual command line to execute.  Note that it’s important to use an absolute path for the script path.
+<li>User: if we don’t specify the user, then the program will be executed as root user. What could be the problem here? 
+Well, the script we execute is launching a server. If the root user launches the server, then the server will be started by the root user, not by the 'pi' user. 
+So, the 'pi' user might encounter permission issues when trying to modify/remove this script later on.
+<li>WantedBy: as we specified 'multi-user.target' before, we need to also write it here.
+</ul>
+
+<pre>
+$ sudo systemctl daemon-reload
+$ sudo systemctl enable shellinbox.service
+</pre>
 
 </div>  
 
