@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the side navigation */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #FFF0F5;
+  overflow-x: hidden;
+}
+
+
+/* Side navigation links */
+.sidenav a {
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color on hover */
+.sidenav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style the content */
+.content {
+  margin-left: 200px;
+  padding-left: 20px;
+}
+</style>
+
+
+<style type="text/css">
+body
+{
+    margin-left:  30px;
+    margin-right: 30px;
+};
+
+P
+{
+    font-family: Tahoma;
+    font-size: 10pt;
+};
+
+a, a:visited, a:active, a:link, a:hover {
+    text-decoration: underline;
+    color: #545454;
+    background-color: transparent;
+	font-size: 93%;
+}
+
+a:hover {
+    background-color: #cccccc;
+}
+
+
+hr {
+    clear: both;
+    height: 1px;
+    color: #242424;
+    background-color: transparent;
+}
+
+h1, h2, h3 {
+    color: #242424;
+    clear: left;
+    font: 100% Tahoma, Helvetica, Arial, sans-serif;
+    margin-bottom: 0.5em;
+    padding-top: 0.5em;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+top {
+	width: 100%;
+}
+
+
+#i {
+    color: #ff1010;
+}
+tt{
+	font-family: "Arial";
+    font-size: 90%;
+	color: #006600;
+}
+em{
+	font-family: "Arial";
+    font-size: 80%;
+	font-weight: bold;
+	border-style:solid;
+	border-color: #abe876;
+    color: #1632cc;
+}
+bc{
+	font-family: "Arial";
+	font-size: 90%;
+	font-weight: bold;
+    color: #990000;
+	background-color: #fcf8c7;
+}
+ks{
+	font-family: "Arial";
+	font-weight: bold;
+    color: #0000CD	;
+	font-size: 90%;
+}
+kc{
+	font-family: "Arial";
+	font-weight: bold;
+    color: #008000	;
+	font-size: 90%;
+}
+pre{
+	font-family: "Consolas";
+	font-size: 85%;
+	background-color: #f5f5f5;
+	border: 1.5px solid silver;
+	padding: 5px;
+}
+m{
+	font-family: "Helvetica";
+	line-height: 100%;
+ 	font-size: 75%;
+}
+div.body{
+	 
+    font-size: 18px;
+}
+k{
+    color: #990000;
+	font-weight: bold;
+	font-size: 90%;
+}
+h1 {
+    font-size: 150%;
+    background-color: #b2c0ff;
+	padding: 10px;
+}
+
+h2 {
+    background-color: #9ed8ff;
+    font-size: 130%;
+}
+
+h3 {
+	background-color: #e6ccff;
+    font-size: 100%;
+}
+h4 {
+    background-color: #ccffcc;
+    font-size: 100%;
+	width: 95%;
+	border-radius: 5px;
+	padding: 2px;
+}
+h5 {
+    background-color: #d5ffb0;
+    font-size: 100%;
+
+}
+div.req{
+	background-color: #d9ffb3;
+    font-size: 18px;
+	width: 700px;
+    border: 3px solid green;
+    padding: 15px;
+    margin: 10px;
+}
+div.remark{
+	background-color: #E3F2FD;
+    border: 1.5px solid #d5f2ed;
+    padding: 15px;
+    margin: 10px;
+	border-radius: 25px;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+ol, ul, li {
+  margin: 0;
+  margin-left: 10px;
+  padding: 0;
+  padding-bottom: 5px;
+}
+
+table, th, td {
+	border: 1px solid black;
+}
+
+img {
+	border: 1.5px solid #d5f2ed
+
+}
+
+a, a:visited, a:active, a:link, a:hover {
+    text-decoration: underline;
+    color: #545454;
+    background-color: transparent;
+}
+
+div.wrapdesc{
+	width: 90%;
+	margin: auto;
+}
+
+div.imagedesc{
+	width: 85%;
+	margin: auto;
+}
+</style>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>    
+
+</head>
+<body>
+
+<div class="sidenav">
+  <a href="#intro">Introduction</a>
+  <a href="#">Link</a>
+  <a href="#">Link</a>
+</div>
+
+<div class="content">
+  <h1>CSS Template</h1>
+  <p>A full-height, fixed sidenav and content.</p>
+  
+  
+<h2 id="intro">Introduction</h2>
+<ul>
+<li>Quantum circuits are a <a href="https://en.wikipedia.org/wiki/Conceptual_model" target="web"><bc>model</bc></a> for quantum computation 
+in which a computation is a sequence of <em>quantum gates</em> followed by <em>measurements</em>.
+<br/>
+</li>
+<li>The gates are reversible transformations on a quantum mechanical analog of an n-bit register. 
+This analogous structure is referred to as an n-qubit register. 
+<br/>
+<li>Measurements, drawn on a circuit diagram as stylized pointer dials, indicate where and how a result is obtained from the quantum computer 
+after the steps of the computation are executed. 
+<br/></li></li>
+<li>Without loss of generality, one can work with the standard circuit model, in which the set of gates are 
+single-qubit unitary transformations and controlled NOT gates on pairs of qubits, and all measurements are in the computational basis.
+</li>
+<li>Measurement-based quantum computation (<em>MBQC</em>) is a model of quantum computing in which the answer to a question is, informally speaking, 
+created in the act of measuring the physical system that serves as the computer.</li>
+</ul>
+
+<h3>Measurement</h3>
+In quantum mechanics, each physical system is associated with a Hilbert space, each element of which is a wave function that represents 
+a possible state of the physical system. 
+The approach codified by John von Neumann represents <k>measurement</k> upon a physical system by a 
+<em>self-adjoint operator</em> (<ks>Hermitian operator</ks>) \( O \) on that Hilbert space termed an <bc>"observable"</bc>.
+Thus \( O = O^&dagger;\).
+<div class="remark">
+The eigenvalues of an Hermitian operator are real numbers and each possible outcome of a measurement is an eigenvalue of the observable.
+</div>
+
+
+<h3>About phases (si veda anche <a href="AppuntiQM.html#blochdemo" target="web">Blochdemo</a>)</h3> <!-- see https://quantum-computing.ibm.com/composer/docs/iqx/guide/introducing-qubit-phase -->
+<ul>
+<li>Arbitrary quantum state:   \( \ket{ψ} = α\ket{0} + β\ket{1} \)  with α,β complex numbers. </li>
+<li>Born rule: result 0 has probability \( |α|^2 \), result 1 has probability \( |β|^2  \) and \( |α|^2 + |β|^2=1 \). </li>
+<li>Global phase (see 
+<a href="https://quantum-computing.ibm.com/composer/docs/iqx/guide/introducing-qubit-phase" target="web">Quantum phase</a>) 
+of a quantum state not detectable (i.e. \( {\color{blue}\ket{ψ} = e^{i&gamma;}\ket{ψ}} \text{ con } &gamma; &isin; [0,2π] \) )
+[remember also the Euler equation: \( e^{i&gamma;} = cos(&gamma;)+i\text{ }sin(&gamma;) \) and that \( e^{iπ} = -1 \)  ]:
+$$ \ket{ψ} = α\ket{0} + β\ket{1} = {\color{blue}\sqrt{1-p}  \ket{0} + e^{iφ}\sqrt{p}\ket{1}} $$ 
+where   \(  0 &le; p &le; 1\) is the probability of the bit being in the 1 state, and 
+\(  0 &le; φ &lt; 2π  \) is the <bc>quantum phase</bc>. <!-- , and  can be any number between [0, 2)--> 
+<br/>
+Now we can write:  
+$$ \ket{ψ} = {\color{fuchsia}a\ket{0} + e^{iφ}b\ket{1} \text{ con } a,b &isin; R} $$ 
+but, since \( \sqrt{ \cos^2{x} + \sin^2{x} } = 1 \) 
+we can <ks>describe the real  a and b</ks> in terms of <k>one variable θ</k>: \( a=\cos{θ}  \text{ , } b=\sin{θ} \), so that 
+the <em>most general state</em> of a single qubit can take the form:
+<br/>
+
+<center>  \( \ket{ψ} = {\color{blue} \cos{\frac{θ}{2}}}\ket{0} + {\color{blue} e^{iφ}sin{\frac{θ}{2}}}\ket{1} \color{fuchsia}\text{ with } θ,φ &isin; R \) </center> 
+
+This leads to representation of the <a href="AppuntiQM.html#blochdemo" target="web">Bloch sphere</a>.
+<center> <img src="./img/qm/sferabloch.PNG" alt="sferabloch.PNG" width="50%"></center> 
+</li>
+<li><k>Quantum Composer</k> has a series of quantum phase-shift gates that allow us to shift this phase: <br/>
+\( T (φ \mapsto φ+π/4) ,S(φ \mapsto π/2),Z (φ \mapsto π ),T^&dagger;(φ \mapsto -π/4),S^&dagger;(φ \mapsto -π/2), P (φ \mapsto -π/2) \).
+</li>
+<li>The <ks>phase disk</ks> at the terminus of each qubit in IBM <k>Quantum Composer</k> gives the local state of each qubit 
+at the end of the computation.
+<table style="width:98%">
+<tbody>	
+<tr>
+<td style="width:30%" >
+<center> <img src="./img/qm/PhasePobabOf1.PNG" alt="PhasePobabOf1.PNG" width="40%"></center> 
+ </td>
+<td>The probability that the qubit is in the  state is represented by the blue disk fill.
+</td>
+</tr>
+
+<tr>
+<td>
+<center> <img src="./img/qm/PhaseQuantumQubit.PNG" alt="PhaseQuantumQubit.PNG" width="40%"></center> 
+</td>
+<td>The quantum phase of the qubit state is given by the line that extends from the center of the diagram 
+to the edge of the gray disk (which rotates counterclockwise around the center point).
+</td>
+</tr>
+
+<tr>
+<td>
+<center> <img src="./img/qm/PhaseDiskSate1.PNG" alt="PhaseDiskSate1.PNG" width="80%"></center> 
+</td>
+<td>Example1 : The \( \ket{1} \) state.
+<br/><br/>
+The <ks>radius</ks> of the black ring represents the <k>reduced purity</k> of the qubit state.<br/>
+The reduced purity for a single qubit is in the range [0.5,1]; 
+a value of 1 indicates that the qubit is <em>not entangled</em> with any other party.
+<br/>
+In contrast, a reduced purity of 0.5 shows that the qubit is left in the completely<em> mixed state</em>, 
+and has some level of entanglement over the remaining  qubits, and possibly even the environment.
+</td>
+</tr>
+
+<tr>
+<td>
+<center> <img src="./img/qm/PhaseDiskSateAnother.PNG" alt="PhaseDiskSateAnother.PNG" width="80%"></center> 
+</td>
+<td>
+Example2: The  \( \frdue(\ket{0}-\ket{1}) \)  state with a nonzero relative phase.
+</td>
+</tr>
+
+<tr>
+<td>
+Example3: 
+</td>
+<td>
+<center> <img src="./img/qm/PhaseDiskExample.PNG" alt="PhaseDiskExample.PNG" width="70%"></center> 
+
+ 
+</td>
+</tr>
+
+
+<tr>
+<td>
+To convert to the Bloch sphere representation:
+</td>
+<td>
+p is the probability that the qubit is in the  state \( \ket{1} \)
+$$ x=2\sqrt{p(1-p)}Re[e^{jφ}] $$
+$$ y=2\sqrt{p(1-p)}Im[e^{jφ}] $$
+$$ z=1-2p$$
+</td>
+</tr>
+
+ </tbody>
+</table>
+ 
+  
+  
+</div>
+
+</body>
+</html>
+
+
