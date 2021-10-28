@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font: 16px Arial;  
+}
+
+/*the container must be positioned relative:*/
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+  cursor: pointer;
+}
+
+</style>
+
+<script src="jsNotes.js"></script>
+
+<script>
+ 
+</script>
+</head>     
+<body>
+
+<ul> 
+<li> <button onClick="buildObject()">buildObject</button>  </li>
+<li> <button onClick="buildObjectArray()">buildObjectArray</button>  </li>
+<li> <button onClick="exprReg()">exprReg</button> </li>
+<li> <button onClick="createSum()">createSum</button>  
+     <button onClick="s=createSum()(2,3); console.log(s)">doSum(2,3)</button> </li>
+<li> <button onClick="objMethod()">objMethod</button>   </li>
+<li> <button onClick="construct()">construct</button>  </li>
+<li> <button onClick="construct()">construct</button> </li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+ 
+
+</body>
+</html>
