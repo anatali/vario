@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>reactIntro</title>
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js".  --> 
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+
+      <!-- LOAD -->
+      <script src="exJsx.js"></script>
+
+  <style>
+    #place0 {
+      padding: 10px;
+      background-color: #1C89BF;
+    }
+    #place1 {
+      padding: 10px;
+      background-color: #49DD8E ;//#E94F37
+    }
+    #place2 {
+      padding: 10px;
+      background-color: #58B3FF ; //#A40E4C
+    }
+    #place3 {
+      padding: 10px;
+      background-color: #E94F37
+    }
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+</style>
+
+
+ </head>
+  <body>
+
+  <h1>React</h1>
+See
+  <ul>
+      <li><a href="https://www.w3schools.com/react/default.asp" target="web">https://www.w3schools.com/react/default.asp</a></li>
+      <li><a href="https://reactjs.org/tutorial/tutorial.html" target="web">https://reactjs.org/tutorial/tutorial.html</a></li>
+      <li><a href="https://it.reactjs.org/docs/introducing-jsx.html" target="web">https://it.reactjs.org/docs/introducing-jsx.html</a></li>
+      <li><a href="https://codepen.io/" target="web">https://codepen.io/</a></li>
+
+      <li></li>
+
+  </ul>
+<h2>React environment for production</h2>
+  <pre>
+npm install -g create-react-app
+npx create-react-app reactapp0    //lowercase only
+cd reactapp0
+npm start
+localhost:3000
+  </pre>
+ <!--
+ -------------------------------------------------------------
+ OUTPUT
+ -------------------------------------------------------------
+ -->
+  <hr/>
+   <h2>Output AREA</h2>
+   <div id="output"> ... </div>
+  <hr/>
+
+ 
+ <!--
+ -------------------------------------------------------------
+ HTML
+ -------------------------------------------------------------
+ -->
+  <h3>Plain HTML</h3>
+<table style="width:80%">
+<tbody>
+<tr>
+<td style="width:50%" >
+<pre>
+  &lt;div id="place0">
+  &lt;ul>
+    &lt;li>Item1</li>
+    &lt;li>Item2</li>
+  &lt;/ul>
+  &lt;/div>
+</pre>
+</td>
+<td>
+    <div id="place0">
+        <ul>
+            <li>Item1</li>
+            <li>Item2</li>
+        </ul>
+    </div>
+</td>
+</tr>
+</tbody>
+</table>
+
+ <!--
+ -------------------------------------------------------------
+ REACT
+ -------------------------------------------------------------
+ -->  
+  <h3>React JavaScript</h3>
+ <table style="width:80%">
+     <tbody>
+     <tr>
+         <td style="width:50%" >
+<pre>
+  &lt;div id="place1">&lt;/div>
+
+  &lt;script>
+  ReactDOM.render(
+  	React.createElement(
+  		"div", null,
+  		React.createElement(
+  		    "ul",null,
+  			React.createElement( "li",null,"Item1"),
+  			React.createElement( "li",null,"Item2"),
+  		)
+    ),
+    place1,
+    function(){ output("update place1 done ")  }
+  )
+  &lt;/script>
+</pre>
+         </td>
+         <td>
+<a href="https://www.w3schools.com/react/react_render.asp" target="web"><tt>ReactDOM.render</tt></a>
+              returns a React element, which is a lightweight description of what to render.
+             <br/>
+             <tt></tt>React</tt> takes the description and displays the result.
+             <br/><br/>
+             <div id="place1"></div>
+
+             <script>
+  ReactDOM.render(
+   // React.createElement("h2",null,"hello"),
+
+  	React.createElement(
+  		"div",
+  		null,
+  		React.createElement(
+  		    "ul",null,
+  			React.createElement( "li",null,"Item1"),
+  			React.createElement( "li",null,"Item2"),
+  		)
+    ),
+    place1,
+    function(){ output("update place1 done ")  } //console.log("update place1 done")
+  )
+  </script>
+             <pre>
+ReactDOM.render(element, container[, callback])
+             </pre>
+         </td>
+     </tr>
+     </tbody>
+ </table>
+
+
+ <!--
+ -------------------------------------------------------------
+ REACT
+ -------------------------------------------------------------
+ -->
+  <h3>React JSX</h3>
+ <table style="width:80%">
+     <tbody>
+     <tr>
+         <td style="width:50%" >
+<pre>
+ &lt;div id="place2">&lt;/div>
+
+  &lt;script type="text/babel">
+    const i2 = "Item2"
+    ReactDOM.render(
+    &lt;div>
+    &lt;ul>
+        &lt;li>Item1&lt;/li>
+        &lt;li>{i2}&lt;/li>
+    &lt;/ul>
+    &lt;/div>,
+  	place2,
+  	function(){ output("update place2 done") }
+  	)
+  &lt;/script>
+</pre>
+         </td>
+         <td>
+Most React developers use a special syntax called
+<a href="https://it.reactjs.org/docs/introducing-jsx.html" target="web">JSX</a>
+which makes these structures easier to write.
+             <br/><br/>
+    <div id="place2"></div>
+
+    <script type="text/babel">
+    const i2 = "Item2"
+    ReactDOM.render(
+  	<div>
+    <ul>
+  		<li>Item1</li>
+  	    <li>{i2}</li>
+    </ul>
+  	</div>,
+    place2,
+  	function(){ output("update place2 done") } //console.log("update place2 done")
+  	)
+  </script>
+</td>
+</tr>
+</tbody>
+</table>
+
+  <!--
+  -------------------------------------------------------------
+  Component
+  -------------------------------------------------------------
+  -->
+  <h3>Component</h3>
+
+  <table style="width:80%">
+      <tbody>
+      <tr>
+          <td style="width:50%" >
+<pre>
+&lt;div id="placeShopping">&lt;/div>
+
+&lt;script type="text/babel">
+  class ShoppingList extends React.Component {
+  render() {
+      return (
+      &lt;div id="place2">
+          &lt;h4>Shopping List for {this.props.name}&lt;/h4>
+          &lt;ul>
+              &lt;li>Instagram&lt;/li>
+              &lt;li>WhatsApp for {this.props.name}&lt;/li>
+              &lt;li>Oculus&lt;/li>
+          &lt;/ul>
+      &lt;/div>
+      );
+  }
+  }
+
+ReactDOM.render(&lt;ShoppingList name="Mark" />,
+    document.getElementById('placeShopping'),
+    function(){ output("ShoppingList done ")  }
+    )
+&lt;/script>
+</pre>
+          </td>
+          <td>
+              <div id="placeShopping"></div>
+
+              <script type="text/babel">
+  class ShoppingList extends React.Component {
+  render() {
+      return (
+      <div id="place2">
+          <h4>Shopping List for {this.props.name}</h4>
+          <ul>
+              <li>Instagram</li>
+              <li>WhatsApp for {this.props.name}</li>
+              <li>Oculus</li>
+          </ul>
+      </div>
+      );
+  }
+  }
+
+ReactDOM.render(<ShoppingList name="Mark" />,
+    document.getElementById('placeShopping'),
+    function(){ output("ShoppingList done ")  }
+    )
+ </script>
+
+          </td>
+      </tr>
+      </tbody>
+  </table>
+
+
+ <!--
+ -------------------------------------------------------------
+ ANIMATE
+ -------------------------------------------------------------
+ -->  
+   <h3>Animation</h3>
+  <table style="width:80%">
+      <tbody>
+      <tr>
+          <td style="width:50%" >
+<pre>
+   &lt;div id="place3">wait a moment ... &lt;/div>
+
+    &lt;script type="text/babel">
+    var count = 0;
+    var myTimer = setInterval(function() {
+    	count++;
+    	ReactDOM.render(
+          &lt;p>animate {count}&lt;/p>,document.getElementById('place3') );
+    	if( count >= 5 ) clearInterval(myTimer);
+    }, 1500);
+    &lt;/script>
+</pre>
+          </td>
+          <td>
+    <div id="place3">wait a moment ... </div>
+
+    <script type="text/babel">
+    var count = 0;
+    var myTimer = setInterval(function() {
+    	count++;
+    	ReactDOM.render( <p>animate {count}</p>, document.getElementById('place3') );
+    	//console.log(count);
+    	if( count >= 5 ) clearInterval(myTimer);
+    }, 1500);
+    </script>
+          </td>
+      </tr>
+      </tbody>
+  </table>
+
+
+  <h2>TicTacToe</h2>
+
+  <table style="width:80%">
+      <tbody>
+      <tr>
+          <td style="width:50%" >
+              <a href="../reactapp0/src/TicTacToe.js" target="web">reactapp0/src/TicTacToe.js</a>
+          </td>
+          <td>
+              <pre>
+cd C:\Didattica2018Work\iss2021Lab\ReactIntro\src\reactapp0>
+npm start
+              </pre>
+
+          </td>
+      </tr>
+      </tbody>
+  </table>
+
+  <br/><br/>
+  </body>
+</html>

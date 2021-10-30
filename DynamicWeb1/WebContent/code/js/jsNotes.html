@@ -40,10 +40,12 @@ input[type=submit] {
 <script src="jsNotes.js"></script>
 
 <script>
- 
+window.addEventListener('load', function () {
+	  console.log('Function executed once the page is loaded');
+});
 </script>
 </head>     
-<body>
+<body > <!-- onload="fibo(40)" onload="alert('loading ...')"  -->
 
 <ul> 
 <li> <button onClick="buildObject()">buildObject</button>  </li>
@@ -53,17 +55,30 @@ input[type=submit] {
      <button onClick="s=createSum()(2,3); console.log(s)">doSum(2,3)</button> </li>
 <li> <button onClick="objMethod()">objMethod</button>   </li>
 <li> <button onClick="construct()">construct</button>  </li>
-<li> <button onClick="construct()">construct</button> </li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
+<li> <button onClick="construct()">construct</button> <hr/> </li>
+<li> <button onClick="useTimeout()">useTimeout</button> </li>  
+ 
+<li> <button onClick="fibo(8)">fibo(8)</button></li>
+ 
 <li></li>
 <li></li>
 <li></li>
 <li></li>
 </ul>
- 
+
+<!--  
+<p id="demo"></p>
+
+<iframe id="myFrame" src="jsNotes.js"></iframe>
+
+<script>
+document.getElementById("myFrame").onload = function() { myFunction() };
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = "jsNotes.js loaded";
+}
+</script>
+-->
 
 </body>
 </html>

@@ -1,6 +1,8 @@
 /*
  * From 2.04.JavaScript.pdf
  */
+ 
+
 function buildObject (){	//pg. 13
 var o = new Object();
 	o.x = 7;
@@ -59,3 +61,30 @@ function construct(){ //pg. 24
 	console.log("rectangle area="+ r.area() + " color=" + Rectangle.color + " quadrato:" + Rectangle.quadrato(r) )
 	
 }
+
+//ADDED
+var count = 1;
+var showhello = function(){ console.log("hello"+ count++) }; 
+
+function dofibo(n){
+	var v = -1;
+	if( n == 0 || n == 1 ) v = n;
+	else{
+		v =  dofibo(n-1) + dofibo(n-2);
+	}	
+	return v
+}
+function fibo(n){
+	console.log( "fibo("+n+")="+ dofibo(n) );
+}
+ 
+
+function useTimeout(){
+	for ( var i = 1; i <= 3; i++ ) setTimeout( showhello, 400);  //pg. 8
+}
+
+
+//window.addEventListener('load', function () { console.log('Executed by jsNotes.js once the page is fully loaded'); });
+
+
+
